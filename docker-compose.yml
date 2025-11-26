@@ -1,0 +1,27 @@
+
+version: "3.9"
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql
+    environment:
+      # Allow root login with no password
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+    ports:
+      - "3306:3306"
+    volumes:
+      # Persist database data locally
+      - mysql_data:/var/lib/mysql
+      # Optional: auto-run .sql or .sh files on first startup
+      - ./init:/docker-entrypoint-initdb.d
+    command: ["mysqld", "--default-authentication-plugin=mysql_native_password"]
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -uroot || exit 1"]
+      interval: 5s
+      timeout: 3s
+      retries: 30
+    restart: unless-stopped
+
+volumes:
+  mysql_data:
