@@ -19,3 +19,26 @@ SHOW COLUMNS FROM devices;
 
 
 SELECT * FROM devices;
+
+SHOW TABLES;
+
+CREATE TABLE Customers (
+    customer_id CHAR(7),
+    fullname VARCHAR(100),
+    email VARCHAR(255)
+);
+
+
+SHOW TABLES;
+
+SHOW COLUMNS FROM Customers;
+
+CREATE TABLE feedback(
+    feedback_id CHAR(8),
+    feedback_type VARCHAR(100),
+    comment TEXT(500)
+);
+
+SHOW COLUMNS FROM feedback;
+
+SHOW TABLES;
