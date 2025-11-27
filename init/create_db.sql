@@ -42,3 +42,26 @@ CREATE TABLE feedback(
 SHOW COLUMNS FROM feedback;
 
 SHOW TABLES;
+
+USE cm_devices;
+
+CREATE TABLE address (
+    id INT NOT NULL,
+    street VARCHAR(255),
+    postcode VARCHAR(10),
+    town VARCHAR(30) DEFAULT "Hallow"
+);
+
+SHOW COLUMNS FROM address;
+
+DROP TABLE address;
+
+CREATE TABLE address (
+    id INT NOT NULL,
+    street VARCHAR(255),
+    postcode VARCHAR(10) DEFAULT "HA97DE",
+    town VARCHAR(30) DEFAULT "Hallow"
+);
+
+
+SHOW COLUMNS FROM address;
