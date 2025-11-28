@@ -65,3 +65,280 @@ CREATE TABLE address (
 
 
 SHOW COLUMNS FROM address;
+
+CREATE TABLE cm_devices.invoice (
+    customer_name VARCHAR(50),
+    order_date DATE,
+    product_quantity INT,
+    total_price DECIMAL
+)
+
+SHOW COLUMNS FROM cm_devices.invoice;
+
+
+SELECT CURRENT_DATE();
+
+
+CREATE DATABASE bookshop;
+
+USE bookshop;
+
+CREATE TABLE customers (
+    customer_id INT,
+    customer_name VARCHAR(50),
+    customer_address VARCHAR(255)
+);
+
+SHOW TABLES;
+
+
+
+INSERT INTO customers (customer_id, customer_name, customer_address)
+VALUES
+(1, 'Alice Johnson', '123 Maple Street, Springfield'),
+(2, 'Bob Smith', '456 Oak Avenue, Lincoln'),
+(3, 'Charlie Brown', '789 Pine Road, Madison'),
+(4, 'Diana Prince', '101 Elm Street, Gotham'),
+(5, 'Ethan Hunt', '202 Birch Lane, Metropolis'),
+(6, 'Fiona Davis', '303 Cedar Drive, Star City'),
+(7, 'George Miller', '404 Walnut Blvd, Central City'),
+(8, 'Hannah Lee', '505 Chestnut Court, Coast City'),
+(9, 'Ian Clark', '606 Aspen Way, Smallville');
+
+
+SELECT * FROM bookshop.customers;
+
+CREATE DATABASE football_club;
+
+USE football_club;
+
+CREATE TABLE players (
+    playerID INT,
+    playerName VARCHAR(50),
+    age INT
+);
+
+
+SHOW TABLES;
+
+
+CREATE TABLE games(
+    gameID INT, 
+    gameDate DATE, 
+    score INT
+);
+
+
+USE bookshop;
+
+TRUNCATE TABLE customers;
+
+INSERT INTO customers 
+(customer_id, customer_name, customer_address) 
+VALUES
+(1, 'Jack', '115 Old street Belfast'),
+(2, 'James', '24 Carlson Rd London'),
+(4, 'Maria', '5 Fredrik Rd, Bedford'),
+(5, 'Jade', '10 Copland Ave Portsmouth '),
+(6, 'Yasmine', '15 Fredrik Rd, Bedford'),
+(3, 'Jimmy', '110 Copland Ave Portsmouth');
+
+
+SELECT * FROM customers;
+
+DELETE FROM customers WHERE customer_id= 3;
+
+SELECT * FROM customers;
+
+
+CREATE DATABASE Chinook;
+
+USE Chinook;
+
+CREATE TABLE Customer (
+    CustomerId INT NOT NULL, 
+    FirstName VARCHAR(40) NOT NULL, 
+    LastName VARCHAR(20) NOT NULL, 
+    Company VARCHAR(80), 
+    Address VARCHAR(70), 
+    City VARCHAR(40), 
+    State VARCHAR(40), 
+    Country VARCHAR(40), 
+    PostalCode VARCHAR(10), 
+    Phone VARCHAR(24), Fax 
+    VARCHAR(24), 
+    Email VARCHAR(60) NOT NULL, 
+    SupportRepId INT, 
+    CONSTRAINT PK_Customer PRIMARY KEY (CustomerId)
+);
+
+INSERT INTO Customer (
+    CustomerId, 
+    FirstName, 
+    LastName, 
+    Company, 
+    Address, 
+    City, 
+    State, 
+    Country, 
+    PostalCode, 
+    Phone, 
+    Fax, 
+    Email, 
+    SupportRepId
+) 
+VALUES 
+(1, 'Luís', 'Gonçalves', 'Embraer - Empresa Brasileira de Aeronáutica S.A.', 'Av. Brigadeiro Faria Lima, 2170', 'São José dos Campos', 'SP', 'Brazil', '12227-000', '+55 (12) 3923-5555', '+55 (12) 3923-5566', 'luisg@embraer.com.br', 3);
+
+
+INSERT INTO Customer (CustomerId, FirstName, LastName, Company, Address, City, State, Country, PostalCode, Phone, Fax, Email, SupportRepId) VALUES (2, 'Eduardo', 'Martins', 'Woodstock Discos', 'Rua Dr. Falcão Filho, 155', 'São Paulo', 'SP', 'Brazil', '01007-010', '+55 (11) 3033-5446', '+55 (11) 3033-4564', 'eduardo@woodstock.com.br', 4);
+
+INSERT INTO Customer (CustomerId, FirstName, LastName, Company, Address, City, State, Country, PostalCode, Phone, Fax, Email, SupportRepId) VALUES
+(3, 'Alexandre', 'Rocha', 'Banco do Brasil S.A.', 'Av. Paulista, 2022', 'São Paulo', 'SP', 'Brazil', '01310-200', '+55 (11) 3055-3278', '+55 (11) 3055-8131', 'alero@uol.com.br', 5);
+
+
+INSERT INTO Customer (CustomerId, FirstName, LastName, Company, Address, City, State, Country, PostalCode, Phone, Fax, Email, SupportRepId) VALUES
+(4, 'Roberto', 'Almeida', 'Riotur', 'Praça Pio X, 119', 'Rio de Janeiro', 'RJ', 'Brazil', '20040-020', '+55 (21) 2271-7000', '+55 (21) 2271-7070', 'roberto.almeida@riotur.gov.br', 3);
+
+INSERT INTO Customer (CustomerId, FirstName, LastName, Company, Address, City, State, Country, PostalCode, Phone, Fax, Email, SupportRepId) VALUES (5, 'Mark', 'Philips', 'Telus', '8210 111 ST NW', 'Edmonton', 'AB', 'Canada', 'T6G 2C7', '+1 (780) 434-4554', '+1 (780) 434-5565', 'mphilips12@shaw.ca', 5);
+
+INSERT INTO Customer (CustomerId, FirstName, LastName, Company, Address, City, State, Country, PostalCode, Phone, Fax, Email, SupportRepId) VALUES (6, 'Jennifer', 'Peterson', 'Rogers Canada', '700 W Pender Street', 'Vancouver', 'BC', 'Canada', 'V6C 1G8', '+1 (604) 688-2255', '+1 (604) 688-8756', 'jenniferp@rogers.ca', 3); 
+
+SELECT CustomerID, FirstName, LastName, City, State, Country FROM Customer;
+
+SELECT CustomerID, FirstName, LastName, City, State, Country 
+FROM Customer 
+ORDER BY FirstName;
+
+SELECT * 
+FROM Customer 
+WHERE Country = "Canada"; 
+
+SELECT * 
+FROM Customer  
+WHERE Country = "Canada" 
+ORDER BY FirstName; 
+
+SELECT FirstName, Country 
+FROM Customer  
+WHERE Country = "Canada"  
+ORDER BY FirstName;
+
+
+CREATE DATABASE shoopping_card_db;
+
+USE shoopping_card_db;
+
+CREATE TABLE customer (
+    customer_id INT,
+    name VARCHAR(100),
+    address VARCHAR(255),
+    email VARCHAR(100),
+    phone VARCHAR(10),
+    PRIMARY KEY (customer_id)
+);
+SHOW COLUMNS FROM customer;
+
+CREATE TABLE product (
+    product_id INT,
+    name VARCHAR(100),
+    price DECIMAL(8,2),
+    description VARCHAR(255),
+    PRIMARY KEY (product_id)
+);
+
+CREATE TABLE card_order (
+    order_id INT,
+    customer_id INT,
+    product_id INT,
+    quantity INT,
+    order_date DATE,
+    status VARCHAR(100),
+    PRIMARY KEY (order_id),
+    FOREIGN KEY (customer_id) REFERENCES customer(customer_id),
+    FOREIGN KEY (product_id) REFERENCES product(product_id)
+)
+
+SHOW COLUMNS FROM card_order;
+
+SHOW TABLES;
+
+
+CREATE DATABASE restaurant;
+
+USE restaurant;
+
+CREATE TABLE tbl( 
+    table_id INT, 
+    location VARCHAR(255), 
+    PRIMARY KEY (table_id) 
+); 
+
+CREATE TABLE waiter( 
+    waiter_id INT, 
+    name VARCHAR(150), 
+    contact_no VARCHAR(10), 
+    shift VARCHAR(10), 
+    PRIMARY KEY (waiter_id) 
+); 
+
+CREATE TABLE table_order( 
+    order_id INT, 
+    date_time DATETIME, 
+    table_id INT, 
+    waiter_id INT, 
+    PRIMARY KEY (order_id), 
+    FOREIGN KEY (table_id) REFERENCES tbl(table_id), 
+    FOREIGN KEY (waiter_id) REFERENCES waiter(waiter_id) 
+); 
+
+
+CREATE TABLE customer( 
+    customer_id INT, 
+    name VARCHAR(100), 
+    NIC_no VARCHAR(12), 
+    contact_no VARCHAR(10), 
+    PRIMARY KEY (customer_id) 
+); 
+
+CREATE TABLE reservation( 
+    reservation_id INT, 
+    date_time DATETIME, 
+    no_of_pax INT, 
+    order_id INT, 
+    table_id INT, 
+    customer_id INT, 
+    PRIMARY KEY (reservation_id), 
+    FOREIGN KEY (order_id) REFERENCES table_order(order_id), 
+    FOREIGN KEY (table_id) REFERENCES tbl(table_id), 
+    FOREIGN KEY (customer_id) REFERENCES customer(customer_id) 
+); 
+
+
+CREATE TABLE menu( 
+    menu_id INT, 
+    description VARCHAR(255), 
+    availability INT, 
+    PRIMARY KEY (menu_id) 
+); 
+
+CREATE TABLE menu_item( 
+    menu_item_id INT, 
+    description VARCHAR(255), 
+    price FLOAT, 
+    availability INT, 
+    menu_id INT, 
+    PRIMARY KEY (menu_item_id), 
+    FOREIGN KEY (menu_id) REFERENCES menu(menu_id) 
+);
+
+
+CREATE TABLE order_menu_item( 
+    order_id INT, 
+    menu_item_id INT, 
+    quantity INT, 
+    PRIMARY KEY (order_id,menu_item_id), 
+    FOREIGN KEY (order_id) REFERENCES table_order(order_id), 
+    FOREIGN KEY (menu_item_id) REFERENCES menu_item(menu_item_id) 
+); 
+
