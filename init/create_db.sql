@@ -390,3 +390,37 @@ WHERE productID IN ('P1', 'P2')
 AND quantity > 2;
 
 
+TRUNCATE TABLE Orders;
+
+INSERT INTO Orders (OrderID, ClientID, ProductID, Quantity, Cost) VALUES (1, "Cl1", "P1", 10, 500), (2, "Cl2", "P2", 5, 100), (3, "Cl3", "P3", 20, 800), (4, "Cl4", "P4", 15, 150), (5, "Cl3", "P3", 10, 450), (6, "Cl2", "P2", 5, 800), (7, "Cl1", "P4", 22, 1200), (8, "Cl1", "P1", 15, 150);  
+
+SELECT * FROM Orders;
+
+-- Task 1: Write a SQL REPLACE statement that inserts two new orders with the following details:
+-- Order 9 data:
+-- OrderID = 9, ClientID = "Cl1", ProductID = "P1", Quantity = 10, Cost = 5000
+-- Order 10 data:
+-- OrderID = 10, ClientID = "Cl2", ProductID = "P2", Quantity = 5, Cost = 100
+-- Once you have executed the SQL statement, you can select all available data in the Orders table. The expected output result should be the same as the following screenshot (assuming that you have created and populated the tables correctly.)
+
+REPLACE INTO Orders (OrderID, ClientID, ProductID, Quantity, Cost) VALUES (9, "Cl1",  "P1", 10, 5000);
+REPLACE INTO Orders (OrderID, ClientID, ProductID, Quantity, Cost) VALUES (10, "Cl2", "P2", 5, 100);
+
+SELECT * FROM Orders;
+
+
+-- Task 2: Lucky Shrub have noticed that the cost of order number 9 is 5000$. 
+-- This is a mistake. The order must cost 500$. You must help them to change it to 500$ by writing a relevant REPLCACE statement. 
+-- Once you have executed the SQL statement, select all available data from the Orders table. 
+-- The expected output result should be the same as the following screenshot 
+-- (assuming that you have created and populated the tables correctly.)
+
+
+REPLACE INTO Orders (OrderID, ClientID, ProductID, Quantity, Cost)
+SELECT OrderID, ClientID, ProductID, Quantity, 500
+FROM Orders
+WHERE OrderID = 9;
+
+
+SELECT * FROM Orders;
+
