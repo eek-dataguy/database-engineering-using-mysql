@@ -557,3 +557,50 @@ ADD CONSTRAINT FK_StaffID_ContractInfo
 FOREIGN KEY (StaffID) REFERENCES Staff(StaffID);
 
 SHOW COLUMNS FROM ContractInfo;
+
+
+CREATE DATABASE IF NOT EXISTS Mangata_Gallo1;
+
+USE Mangata_Gallo1;
+
+-- Task 1: 
+-- Write a SQL statement that creates the Staff table with the following columns.
+-- StaffID: INT
+-- FullName: VARCHAR(100)
+-- PhoneNumber: VARCHAR(10)
+-- The table structure should be the same as the following screenshot (assuming that you have created and populated the table correctly.)
+CREATE TABLE Staff (
+    StaffID INT ,
+    FullName VARCHAR(100),
+    PhoneNumber VARCHAR(10)
+)
+
+SHOW COLUMNS FROM Staff;
+
+-- Task 2: 
+-- Write a SQL statement to apply the following constraints to the Staff table.
+-- StaffID: INT NOT NULL and PRIMARY KEY
+-- FullName: VARCHAR(100) and NOT NULL
+-- PhoneNumber: INT NOT NULL
+-- The expected output result should be the same as the following screenshot (assuming that you have created and populated the tables correctly.)
+ALTER TABLE Staff MODIFY StaffID INT NOT NULL PRIMARY KEY, MODIFY FullName VARCHAR(100) NOT NULL, MODIFY PhoneNumber INT NOT NULL;
+
+SHOW COLUMNS FROM Staff;
+
+-- Task 3:
+-- Write a SQL statement that adds a new column called 'Role' to the Staff table with the following constraints.
+-- Role: VARCHAR(50) and NOT NULL
+-- The expected output result should be the same as the following screenshot (assuming that you have created and populated the tables correctly.)
+ALTER TABLE Staff ADD Role VARCHAR(50) NOT NULL;
+
+SHOW COLUMNS FROM Staff;
+
+
+-- Task 4:
+-- Write a SQL statement that drops the Phone Number column from the 'Staff' table.
+-- The expected structure of the table after removing the Phone Number column should be the same as the following screenshot 
+-- (assuming that you have created and populated the tables correctly.)
+
+ALTER TABLE Staff DROP COLUMN PhoneNumber;
+
+SHOW COLUMNS FROM Staff;
